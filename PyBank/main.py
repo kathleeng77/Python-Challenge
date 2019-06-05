@@ -92,7 +92,7 @@ with open(csvpath,newline='') as csvfile:
     print("Greatest Decrease in Profits: " + dates[indexOf_minProfit+1] + " ($" + str(minProfit) +")")
     
     # output all print statements to text file
-    with open('PyBank.txt', 'a') as f:
+    with open('PyBank.txt', 'w') as f:
         print("Financial Analysis", file=f)
         print("----------------------------", file=f)
         print("Total Months: " + str(total_months), file=f)
