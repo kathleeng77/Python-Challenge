@@ -33,18 +33,6 @@ with open(csvpath,newline='') as csvfile:
     # print(len(dates))
     # print(profit)
     # print(len(profit))
-
-    # print title of analysis    
-    print("Financial Analysis")
-    print("----------------------------")
-    
-    # calc and print total months
-    total_months = len(dates)
-    print("Total Months: " + str(total_months))
-    
-    # calc and print total profit
-    total_profit = sum(profit)    
-    print("Total: $" + str(total_profit))
     
     # loop to calc monthly_change and add to change_list
     for i in range(1, len(profit)):
@@ -66,10 +54,6 @@ with open(csvpath,newline='') as csvfile:
     def mean(numbers):
         avg = sum(numbers) / len(numbers)
         return avg
-    
-    # calc and print avg_change with correct decimals
-    avg_change = mean(change_list)
-    print("Average Change: $" + str(format(avg_change, '.2f')))
 
     # find greatest increase and decrease in profits
     maxProfit = max(change_list)
@@ -87,9 +71,32 @@ with open(csvpath,newline='') as csvfile:
     # print(dates[indexOf_maxProfit+1])
     # print(dates[indexOf_minProfit+1])
     
+    # print title of analysis    
+    print("Financial Analysis")
+    print("----------------------------")
+    
+    # calc and print total months
+    total_months = len(dates)
+    print("Total Months: " + str(total_months))
+    
+    # calc and print total profit
+    total_profit = sum(profit)    
+    print("Total: $" + str(total_profit))
+    
+    # calc and print avg_change with correct decimals
+    avg_change = mean(change_list)
+    print("Average Change: $" + str(format(avg_change, '.2f')))
+
     # print greatest increase and decrease in profits
     print("Greatest Increase in Profits: " + dates[indexOf_maxProfit+1] + " ($" + str(maxProfit) +")")
     print("Greatest Decrease in Profits: " + dates[indexOf_minProfit+1] + " ($" + str(minProfit) +")")
-
     
-
+    # output all print statements to text file
+    with open('PyBank.txt', 'a') as f:
+        print("Financial Analysis", file=f)
+        print("----------------------------", file=f)
+        print("Total Months: " + str(total_months), file=f)
+        print("Total: $" + str(total_profit), file=f)
+        print("Average Change: $" + str(format(avg_change, '.2f')), file=f)
+        print("Greatest Increase in Profits: " + dates[indexOf_maxProfit+1] + " ($" + str(maxProfit) +")", file=f)
+        print("Greatest Decrease in Profits: " + dates[indexOf_minProfit+1] + " ($" + str(minProfit) +")", file=f)
