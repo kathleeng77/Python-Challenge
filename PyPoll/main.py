@@ -6,10 +6,11 @@ import csv
 csvpath = os.path.join('election_data.csv')
 
 # create lists and variables
-total_votes = 0
 id_list = []
 county_list = []
 candidate_list = []
+unique_list = []
+vote_list = []
 
 # read data into program
 with open(csvpath,newline='') as csvfile:
@@ -25,27 +26,41 @@ with open(csvpath,newline='') as csvfile:
         candidate_list.append(row[2])
 
     # following only to check if the lists were split correctly
-    # print(id_list[0:50])
+    # print(id_list[0:10])
     # print(len(id_list))
-    # print(county_list[0:50])
+    # print(county_list[0:10])
     # print(len(county_list))
-    # print(candidate_list[0:50])
-    # print(len(candidate_list))
+    # print(candidate_list[0:10])
+    # print(len(candidate_list)) 
     
     # print title of analysis    
     print("Election Results \n-------------------------")
     
     # calc and print total votes
     total_votes = len(id_list)
-    print("Total Votes: " + str(total_votes) + "\n-------------------------")
+    print(f"Total Votes: {total_votes}\n-------------------------")
     
-    # calc and print candidates tallies
-    print("Khan: \nCorrey: \nLi: \nO'Tooley: \n-------------------------")
+    # calc unique candidate names
+    for name in candidate_list:
+        if name not in unique_list: 
+            unique_list.append(name)
+
+    for x in unique_list:
+        vote_count = candidate_list.count(x)
+        vote_list.append(vote_count)
+        print(f"{x}: {format(((vote_count / total_votes) * 100), '.3f')}% ({vote_count})")
     
-    # calc and print winner
-    print("Winner: Khan\n-------------------------")
+    print(f"-------------------------")
+    print(f"Winner: {unique_list[vote_list.index(max(vote_list))]}\n-------------------------")
 
     # output all print statements to text file
     with open('PyPoll.txt', 'w') as f:
-        print("Election Results\n-------------------------\nTotal Votes: " + str(total_votes) + 
-            "\n-------------------------", file=f)
+        #print("Election Results \n-------------------------")
+        #print(f"Total Votes: {total_votes}\n-------------------------")
+        for x in unique_list:
+            vote_count = candidate_list.count(x)
+            vote_list.append(vote_count)
+            print(f"{x}: {format(((vote_count / total_votes) * 100), '.3f')}% ({vote_count})", file=f)
+        print(f"-------------------------", file=f)
+        print(f"Winner: {unique_list[vote_list.index(max(vote_list))]}", file=f)
+        print(f"-------------------------", file=f)
