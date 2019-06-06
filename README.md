@@ -12,7 +12,7 @@ First, I created a Python script that analyzes a budget in a .csv file to calcul
 4. The greatest increase in profits (date and amount) over the entire period.
 5. The greatest decrease in profits (date and amount) over the entire period.
 
-Then, I exported the output to a text file called PyBank.txt.
+Then, I exported the output to a text file called Finance.txt.
 
 # Election Analysis
 
@@ -24,4 +24,8 @@ Second, I created a Python script that analyzes polling data in a .csv file to c
 4. The total number of votes each candidate won.
 5. The winner of the election based on popular vote.
 
-Last, I exported the output to a text file called PyPoll.txt.
+Last, I exported the output to a text file called Election.txt.
+
+# Notes
+
+The second analysis really shows how powerful Python is because the .csv file contained over 3 million votes. The script will run on any length with as many different candidates as there are, if they are in the same columns in the .csv file as the one I used.
