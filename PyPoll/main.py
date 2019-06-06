@@ -47,7 +47,7 @@ with open(csvpath,newline='') as csvfile:
     print(f"-------------------------\nWinner: {unique_list[vote_list.index(max(vote_list))]}\n-------------------------")
 
     # output to text file (only one for loop had to be repeated so that it could print to txt file correctly even if candidate list changes)
-    with open('PyPoll.txt', 'w') as f:
+    with open('Election.txt', 'w') as f:
 
         # output title of analysis and total votes to txt file
         print(f"Election Results \n-------------------------\nTotal Votes: {total_votes}\n-------------------------", file=f)
