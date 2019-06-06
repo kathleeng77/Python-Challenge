@@ -28,4 +28,4 @@ Last, I exported the output to a text file called Election.txt.
 
 # Notes
 
-The second analysis really shows how powerful Python is because the .csv file contained over 3 million votes. The script will run on any length with as many different candidates as there are, if they are in the same columns in the .csv file as the one I used.
+The second analysis really shows how powerful Python is because the .csv file contained over 3 million rows! The script I wrote will run on any length and any number of candidates, as long as they are in the same columns in the .csv file as the one I used.
